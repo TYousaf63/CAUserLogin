@@ -19,7 +19,7 @@ import view.ViewManager;
 /**
  * The version of Main with an external database used to persist user data.
  */
-public class MainWithDB {
+public class MainWithInMemory {
 
     /**
      * The main method for starting the program with an external database used to persist user data.
@@ -54,15 +54,15 @@ public class MainWithDB {
         final InMemoryUserDataAccessObject userDataAccessObject = new InMemoryUserDataAccessObject();
 
         final SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel,
-                                                                  signupViewModel, userDataAccessObject);
+                signupViewModel, userDataAccessObject);
         views.add(signupView, signupView.getViewName());
 
         final LoginView loginView = LoginUseCaseFactory.create(viewManagerModel, loginViewModel,
-                                                               loggedInViewModel, userDataAccessObject);
+                loggedInViewModel, userDataAccessObject);
         views.add(loginView, loginView.getViewName());
 
         final LoggedInView loggedInView = ChangePasswordUseCaseFactory.create(viewManagerModel,
-                                                                              loggedInViewModel, userDataAccessObject);
+                loggedInViewModel, userDataAccessObject);
         views.add(loggedInView, loggedInView.getViewName());
 
         viewManagerModel.setState(signupView.getViewName());
@@ -72,3 +72,4 @@ public class MainWithDB {
         application.setVisible(true);
     }
 }
+
