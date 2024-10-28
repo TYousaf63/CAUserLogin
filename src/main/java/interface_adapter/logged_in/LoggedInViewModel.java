@@ -12,4 +12,14 @@ public class LoggedInViewModel extends ViewModel<LoggedInState> {
         setState(new LoggedInState());
     }
 
+    /**
+     * Sets the error message to be displayed.
+     *
+     * @param error The error message to be displayed.
+     */
+    public void setErrorMessage(String error) {
+        getState().setErrorMessage(error);
+        firePropertyChanged("errorMessage");
+    }
+
 }

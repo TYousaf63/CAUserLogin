@@ -11,4 +11,14 @@ public class ViewManagerModel extends ViewModel<String> {
         this.setState("");
     }
 
+    /**
+     * Changes the current view to the specified view.
+     *
+     * @param loggedIn The name of the view to change to.
+     */
+
+    public void changeView(String loggedIn) {
+        this.setState(loggedIn);
+        firePropertyChanged("currentView");
+    }
 }
